@@ -14,7 +14,9 @@ class Main {
     int first = 0;
     // Fn-1 
     int second = 1;
+    
 
+    // n이 0과 1인 경우를 제외한 나머지는 Fn = Fn-1 + Fn-2 이므로 else문 실행
     for (int i = 0 ;i < n; i++) {
       if (n == 0)
         break;
@@ -26,6 +28,7 @@ class Main {
         second = result;  
       }  
     }
+    // 출력
     System.out.println(result); 
   }
 }
