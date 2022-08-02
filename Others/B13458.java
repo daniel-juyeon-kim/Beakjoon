@@ -11,26 +11,31 @@ public class Main {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		// 필요한 코인개수
-		int cnt = 0;
-		// 코인의 개수 
-		int coin = in.nextInt();
-		// 코인의 배열
-		int coins [] = new int [coin];
-		// 값
-		int amount = in.nextInt();
+		int result = 0;
 		
-		// 코인의 단위 입력
-		for (int i = 0; i < coins.length ; i++) {
-			coins[i] = in.nextInt();
+		int N = in.nextInt();
+		int A [] = new int [N];
+		
+		for (int i = 0; i < A.length;i++) {
+			A[i] = in.nextInt();
 		}
-		// 계산		
-		for (int i = coins.length-1; i >= 0 ;i--) {
-			cnt += amount / coins[i];
-			amount %= coins[i];
+		
+		int B = in.nextInt();
+		int C = in.nextInt();
+		
+		for (int i = 0; i < A.length;i++) {
+			A[i] -= B;
+			result++;
+			if (A[i] > 0) {
+				result += A[i] / C;
+				A[i] %= C;
+				if (A[i] > 0) {
+					result++;
+				}
+			}
 		}
-		// 출력
-		System.out.println(cnt);
+		System.out.println(result);
+		
 	}
 
 }
